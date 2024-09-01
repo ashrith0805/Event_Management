@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/logEvents.css">
+    <title>View Events</title>
+</head>
+<body>
+<form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+<form action="/superUserredirect" method="post">
+    <button type="submit" class="superuserportal">Portal</button>
+    </form>
+    <h1>Transaction Log</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Details</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in Log %}
+                <tr>
+                    <td>{{ log.details }}</td>
+                    <td>{{ log.time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/editEvent.css">
+    <title>Edit Event</title>
+</head>
+<body>
+    <h1>Edit Event</h1>
+    <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+    <form action="/superUserredirect" method="post">
+    <button type="submit" class="superuserportal">Portal</button>
+    </form>
+     {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Duration</th>
+                <th>Location</th>
+                <th>Old Capacity</th>
+                <th>New Capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.start_time }}</td>
+                    <td>{{ event.duration }}</td>
+                    <td>{{ event.location }}</td>
+                    <td>{{event.capacity}}</td>
+                    <td>
+                        {% if event.tickets <= event.capacity %}
+                            <form action="/update_capacity" method="post">
+                                <input type="hidden" name="event_name" value="{{ event.name }}">
+                                <input type="number" name="new_capacity" placeholder="New Capacity">
+                                <button type="submit" id="butt">Update Capacity</button>
+                            </form>
+                        {% else %}
+                            {{ event.capacity }}
+                        {% endif %}
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

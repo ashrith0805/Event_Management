@@ -1,0 +1,68 @@
+/* static/css/home.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px; /* Added margin-top for better spacing */
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#login {
+    background-color: #4caf50;
+    color: white;
+}
+
+
+#login:hover {
+    background-color: #45a049;
+}
+
+#register {
+    background-color: #008CBA;
+    color: white;
+}
+
+#register:hover {
+    background-color: #0077a3;
+}
+
+table {
+    width: 80%; /* Adjusted table width for better layout */
+    margin: 20px auto; /* Centered the table */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+thead {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Light gray background for even rows */
+}
+
+tbody tr:hover {
+    background-color: #ddd; /* Darker gray background on hover */
+}

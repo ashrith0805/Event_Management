@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="static/css/createEvent.css">
+</head>
+<body>
+    <h1>Create Event</h1>
+   <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+    <form action="/superUserredirect" method="post">
+    <button type="submit" class="superuserportal">Portal</button>
+         {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+    </form>
+    <form id="eventForm" action="/create_event" method="POST">
+        <label for="event_name">Event Name:</label><br>
+        <input type="text" id="event_name" name="event_name" required><br><br>
+
+        <label for="event_date">Event Date:</label><br>
+        <input type="date" id="event_date" name="event_date" required><br><br>
+
+        <label for="start_time">Start Time:</label><br>
+        <input type="time" id="start_time" name="start_time" required><br><br>
+
+        <label for="duration">Duration (in hours):</label><br>
+        <input type="number" id="duration" name="duration" min="1" required><br><br>
+
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <label for="capacity">Capacity:</label><br>
+        <input type="number" id="capacity" name="capacity" min="1" required><br><br>
+
+
+
+
+
+        <input type="submit" value="Create Event">
+    </form>
+
+
+    <script>
+        document.getElementById("eventForm").addEventListener("submit", function(event) {
+            var eventDate = new Date(document.getElementById("event_date").value);
+            var eventTime = new Date("1970-01-01T" + document.getElementById("start_time").value);
+
+            var currentDate = new Date();
+            currentDate.setSeconds(0);
+            currentDate.setMilliseconds(0);
+
+            if (eventDate < currentDate || (eventDate.getTime() === currentDate.getTime() && eventTime <= currentDate)) {
+                alert("Please select a date and time after the current date and time.");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

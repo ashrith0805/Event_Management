@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super User Home Portal</title>
+    <link rel="stylesheet" href="static/css/superUserPortal.css">
+    <script src="static/Js/superUserPortal.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <button class="active" id="View">View Events</button>
+        <button id="Create">Create Event</button>
+        <button id="Editcap">Edit Capacity</button>
+        <button id="Delete">Delete Event</button>
+         <button id="logbutton">Transaction Log</button>
+         <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+    </form>
+    </div>
+
+    <div class="content">
+        <h2>Welcome Super User!</h2>
+        <p>This is your home portal. You can navigate to different pages using the buttons above.</p>
+        <div id="view_events" class="page">
+            <h3>View Events</h3>
+            <p>List of events will be displayed here.</p>
+        </div>
+        <div id="create_event" class="page">
+            <h3>Create Event</h3>
+            <p>Create a new event form will be displayed here.</p>
+        </div>
+        <div id="delete_event" class="page">
+            <h3>Delete Event</h3>
+            <p>Delete event form will be displayed here.</p>
+        </div>
+         <div id="edit_events" class="page">
+            <h3>Edit Capacity</h3>
+            <p>Change capacity of existing events here.</p>
+        </div>
+    </div>
+
+    <script>
+        function logout() {
+            alert("Logged out successfully!");
+        }
+    </script>
+
+</body>
+</html>

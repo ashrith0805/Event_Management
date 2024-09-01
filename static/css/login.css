@@ -1,0 +1,69 @@
+/* static/css/login.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+button[type="submit"],
+#forgotpass {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+#forgotpass:hover {
+    background-color: #45a049;
+}
+
+#forgotpass {
+    background-color: #008CBA;
+}
+
+#forgotpass:hover {
+    background-color: #0077a3;
+}
+
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #f44336; /* Red border color */
+    background-color: #f8d7da; /* Light red background color */
+    color: #721c24; /* Dark red text color */
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventByte</title>
+    <script src="static/Js/Home.js"></script>
+    <link rel="stylesheet" href="static/css/home.css">
+</head>
+<body>
+<h1> EventByte-DCS event booking system </h1>
+<button id="login"> Log In</button>
+<button id="register"> Register</button>
+<button id="cancelledEvents"> View cancelled events</button>
+    <h1>Events List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>Duration(hours)</th>
+                <th>Location</th>
+                <th>Ticket status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.start_time }}</td>
+                    <td>{{ event.duration }}</td>
+                    <td>{{ event.location }}</td>
+                    {% if event.tickets == 0 %}
+                            <td> Sold Out</td>
+                    {% elif event.tickets / event.capacity < 0.05 %}
+                            <td>Last {{ event.tickets }} left</td>
+            {% endif %}
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

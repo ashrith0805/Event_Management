@@ -1,0 +1,119 @@
+/* viewBooking.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Table Header Styles */
+thead {
+    background-color: #f2f2f2;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Ticket Name Styles */
+td:nth-child(odd) {
+    font-weight: bold;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+}
+
+/* Style for the logout button */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336; /* Red background */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for the logout button */
+.logout-button:hover {
+    background-color: #d32f2f; /* Darker red background on hover */
+}
+/* Style for the "Portal" button */
+.userportal {
+    position: fixed;
+    top: 10px; /* Adjusted the top position */
+    left: 20px; /* Positioned it at the top left */
+    background-color: #007bff; /* Blue background */
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hover effect for the "Portal" button */
+.userportal:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+}
+
+.flash-message {
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 5px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flash-success {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+.flash-info {
+    background-color: #2196F3; /* Blue */
+    color: white;
+}
+
+.flash-warning {
+    background-color: #ff9800; /* Yellow */
+    color: white;
+}
+
+.flash-error {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+
+
+
+

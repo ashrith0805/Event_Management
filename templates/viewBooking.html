@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/viewBooking.css">
+    <title>View Events</title>
+</head>
+<body>
+    <h1>My Bookings</h1>
+   <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+    <form action="/Userredirect" method="post">
+    <button type="submit" class="userportal">Portal</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Reference Number</th> <!-- Fixed missing closing tag -->
+                <th>Barcode</th> <!-- Fixed missing closing tag -->
+            </tr> <!-- Added missing closing tag -->
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.reference }}</td>
+                    <td><img src = "{{ ticket.barcode_filename }}" alt="Barcode Image"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

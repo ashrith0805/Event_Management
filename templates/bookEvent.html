@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/book.css">
+    <title>View Events</title>
+
+
+
+</head>
+<body>
+    <h1>Events List</h1>
+    <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+    </form>
+    <form action="/Userredirect" method="post">
+    <button type="submit" class="userportal">Portal</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Start Time</th>
+                <th>Duration(hours)</th>
+                <th>Location</th>
+                <th>Book</th>
+                <th>Ticket status</th>
+            </tr>
+        </thead>
+       <tbody>
+    {% for event in events %}
+        {% set booked = false %}
+        {% for ticket in tickets %}
+            {% if ticket.name == event.name %}
+                {% set booked = true %}
+            {% endif %}
+        {% endfor %}
+        <tr>
+            <td>{{ event.name }}</td>
+            <td>{{ event.date }}</td>
+            <td>{{ event.start_time }}</td>
+            <td>{{ event.duration }}</td>
+            <td>{{ event.location }}</td>
+            {% if event.tickets > 0 %}
+                {% if booked %}
+                    <td>Booked</td>
+                {% else %}
+                    <td>
+                        <form action="/book_event" method="post">
+                            <input type="hidden" name="event_name" value="{{ event.name }}">
+                            <button type="submit" class="book-button" data-event-name="{{ event.name }}" data-event-id="{{ event.id }}">Book</button>
+                        </form>
+                    </td>
+                {% endif %}
+            {% else %}
+                <td>Sold Out</td>
+            {% endif %}
+            {% if event.tickets / event.capacity < 0.05 %}
+                    <td>Last {{ event.tickets }} left</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</tbody>
+        </tbody>
+    </table>
+
+</body>
+</html>

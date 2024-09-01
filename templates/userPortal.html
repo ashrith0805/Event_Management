@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super User Home Portal</title>
+     <link rel="stylesheet" href="static/css/superUserPortal.css">
+    <script src="static/Js/userPortal.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <button class="active" id="View">View Events</button>
+        <button id="Book">Book Event</button>
+        <button id="Cancel">Cancel Booking</button>
+        <button id="ViewBooking">View Booking</button>
+       <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+    </div>
+
+    <div class="content">
+        <h2>Welcome  User!</h2>
+        <p>This is your home portal. You can navigate to different pages using the buttons above.</p>
+        <div id="view_events" class="page">
+            <h3>View Events</h3>
+            <p>List of events will be displayed here.</p>
+        </div>
+        <div id="create_event" class="page">
+            <h3>Book Events</h3>
+            <p>List of all available events that can be booked will be displayed here</p>
+        </div>
+        <div id="delete_event" class="page">
+            <h3>View Booking</h3>
+            <p>View a list of all bookings with booking id plus bar code for each</p>
+        </div>
+         <div id="edit_events" class="page">
+            <h3>Cancel booking</h3>
+            <p>Cancel booking</p>
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

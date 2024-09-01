@@ -1,0 +1,77 @@
+/* deleteEvent.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light background */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px; /* Add some spacing */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ced4da; /* Light border color */
+}
+
+th, td {
+    padding: 10px; /* Increase padding */
+    text-align: left;
+}
+
+#butt {
+    margin-left: 10px;
+}
+
+input[type="number"] {
+    width: 70px;
+}
+
+input[type="submit"],
+.superuserportal,
+.logout-button {
+    padding: 10px 20px; /* Increase padding */
+    border: none;
+    border-radius: 6px; /* Slightly rounder edges */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+input[type="submit"],
+.superuserportal {
+    background-color: #007bff; /* Blue background */
+    color: white;
+}
+
+input[type="submit"]:hover,
+.superuserportal:hover {
+    background-color: #0056b3; /* Darker blue background on hover */
+}
+
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #f44336; /* Red background */
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: #d32f2f; /* Darker red background on hover */
+}
+
+.flash-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #f44336; /* Red border color */
+    background-color: #f8d7da; /* Light red background color */
+    color: #721c24; /* Dark red text color */
+}

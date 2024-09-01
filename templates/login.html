@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="stylesheet" href="static/css/login.css">
+    <script src="static/Js/login.js"></script>
+</head>
+<body>
+    <h2>Log In</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/verify" method="GET">
+        <label for="uname">Username:</label><br>
+        <input type="text" id="uname" name="uname" required><br>
+        <label for="psw">Password:</label><br>
+        <input type="password" id="psw" name="psw" required><br>
+        <button type="submit">Log In</button>
+    </form>
+ <button id="forgotpass"> Forgot Password?</button>
+</body>
+</html>

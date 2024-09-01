@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/deleteEvent.css">
+    <title>Delete Events</title>
+</head>
+<body>
+    <h1>Delete Event</h1>
+    <form action="/logout" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+    <form action="/superUserredirect" method="post">
+    <button type="submit" class="superuserportal">Portal</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th> <!-- Fixed missing closing tag -->
+                <th>Time</th>
+                 <th>Duration</th>
+                 <th>Location</th>
+                 <th>Capacity</th>
+                 <th>Tickets</th>
+                <th>Cancel </th>
+            </tr> <!-- Added missing closing tag -->
+        </thead>
+        <tbody>
+            {% for event in events %}
+                <tr>
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.start_time }}</td>
+                    <td>{{ event.duration }}</td>
+                    <td>{{ event.location }}</td>
+                    <td>{{ event.capacity }}</td>
+                    <td>{{ event.tickets }}</td>
+                    <td>
+                            <form action="/delete_event" method="post">
+                                <input type="hidden" name="event_name" value="{{ event.name }}">
+                                <button type="submit" id="butt">Cancel</button>
+                            </form>
+                        </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

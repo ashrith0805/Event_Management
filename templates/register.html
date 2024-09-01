@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="static/css/register.css">
+</head>
+<body>
+    <h2>Registration Form</h2>
+    <form action="/create" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+         <label for="confirmpass">Confirm Password:</label><br>
+        <input type="password" id="confirmpass" name="confirmpass" required><br><br>
+
+        <label for="category">Category:</label><br>
+        <select id="category" name="category">
+            <option value="atendee">Regular User</option>
+            <option value="superuser">Superuser</option>
+        </select><br><br>
+        <input type="submit" value="Register">
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
